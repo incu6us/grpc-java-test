@@ -1,0 +1,98 @@
+1526027813708:help
+1526027898999:exit
+1526027916092:help
+1526027925665:rhelp read
+1526027929306:help read
+1526027978230:read --server 127.0.0.1:800
+1526027980462:read --server 127.0.0.1:8000
+1526028163321:exit
+1526028221605:help
+1526028268294:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526028283094:exit
+1526028330989:read --server 127.0.0.1:8000 --id 1
+1526028335749:read --server 127.0.0.1:8000 --id 2
+1526028451357:exit
+1526028660327:read --server 127.0.0.1:8000
+1526028665975:read --server 127.0.0.1:8000 --id 1
+1526028669471:read --server 127.0.0.1:8000 --id 2
+1526029146379:exit
+1526029173395:read --server 127.0.0.1:8000 --id 1
+1526029179970:read --server 127.0.0.1:8000 --id 2
+1526029656936:exit
+1526029672025:read --server 127.0.0.1:8000 --id 2
+1526029675343:read --server 127.0.0.1:8000 --id 1
+1526029798724:exit
+1526029813765:read --server 127.0.0.1:8000 --id 1
+1526029816995:read --server 127.0.0.1:8000 --id 2
+1526029848994:read --server 127.0.0.1:8000 --id 1
+1526029901193:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526029944487:stacktrace
+1526030036389:exit
+1526030051493:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030162450:read --server 127.0.0.1:8000 --id 1
+1526030182808:read --server 127.0.0.1:8000 --id 2
+1526030213568:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030313022:read --server 127.0.0.1:8000 --id 1
+1526030314797:read --server 127.0.0.1:8000 --id 2
+1526030358894:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030360782:read --server 127.0.0.1:8000 --id 2
+1526030425900:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030434267:read --server 127.0.0.1:8000 --id 2
+1526030437195:read --server 127.0.0.1:8000 --id 1
+1526030505481:read --server 127.0.0.1:8000 --id 2
+1526030508113:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030584246:exit
+1526030617639:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030644549:exit
+1526030658262:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526030735346:read --server 127.0.0.1:8000 --id 2
+1526030737010:read --server 127.0.0.1:8000 --id 1
+1526030791612:exit
+1526030887242:read --server 127.0.0.1:8000 --id 1
+1526030901888:store --server 127.0.0.1:8000 --id 1 --message "test message"
+1526032359609:exit
+1547484877867:help
+1547484888372:read
+1547484906530:read --server localhost:8000
+1547484918478:read --server localhost:8000 --id 1
+1547484955614:read --server localhost:8000
+1547484962893:read --server localhost:8000 --id 1
+1547484969474:read --server localhost:8000 --id 2
+1547485719583:read --server localhost:8000 --id 1
+1547485748307:read --server localhost:8000 --id 2
+1547485923402:GetRes
+1547485932867:read --server localhost:8000 --id 2
+1547485944236:stacktrace
+1547485985202:read --server localhost:8000 --id 2
+1547491585504:stacktrace
+1547491707417:read --server localhost:8000 --id 2
+1547492164174:read --server localhost:8000 --id 1
+1547492174760:stacktrace
+1547492376306:ClassNotFoundException: org/eclipse/jetty/alpn/ALPN
+1547492387611:help
+1547492390741:read
+1547492406166:read --server localhost:8000 --id 1
+1547492414898:stacktrace
+1547492693921:quit
+1547492925803:read --server localhost:8000 --id 1
+1547492981140:ClassNotFoundException: io.netty.internal.tcnative.SSL
+1547492997428:read --server localhost:8000 --id 1
+1547493020572:read --server localhost:8000 --id 2
+1547493407002:read --server localhost:8000 --id 1
+1547493523391:read --server localhost:8000 --id 2
+1547493679871:read --server localhost:8000 --id 1
+1547493991560:quit
+1547494018824:read --server localhost:8000 --id 1
+1547494352700:read --server localhost:8000 --id 2
+1547495538219:read --server localhost:8000 --id 1
+1547495545548:quit
+1547495567337:read --server localhost:8000 --id 1
+1547495573633:read --server localhost:8000 --id 2
+1547497731480:read --server localhost:8000 --id 1
+1547497737882:read --server localhost:8000 --id 2
+1547498129187:read --server localhost:8000 --id 1
+1547498137581:read --server localhost:8000 --id 2
+1547498428668:quit
+1547498694258:read --server localhost:8000 --id 1
+1547498697477:read --server localhost:8000 --id 2
+1547498702455:quit
