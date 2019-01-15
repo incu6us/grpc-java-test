@@ -1,56 +1,26 @@
 package com.grpctest.server;
 
 import com.google.protobuf.Any;
-import com.google.protobuf.StringValue;
-import com.google.protobuf.Struct;
-import com.google.rpc.BadRequest;
-import com.google.rpc.ErrorDetailsProto;
 import com.grpctest.repository.Storage;
 import com.grpctest.repository.exception.NoRecordException;
 import com.grpctest.store.*;
-import io.grpc.Metadata;
-import io.grpc.protobuf.ProtoUtils;
+import io.grpc.Status;
 import io.grpc.protobuf.StatusProto;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import io.grpc.Status;
-
-//class SomeDetails {
-//    private static final com.google.protobuf.Any DETAILS_PROTO;
-//    static {
-//        DETAILS_PROTO = new com.google.protobuf.Any();
-//    }
-//
-//    String id;
-//    String messageDetails;
-//
-////    public static com.google.rpc.ErrorDetailsProto getDefaultInstance(){
-////return DETAILS_PROTO;
-////    }
-//}
 
 @Component
 public class StoreServiceImpl extends StoreServiceGrpc.StoreServiceImplBase {
 
     private static final Logger log = LoggerFactory.getLogger(StoreServiceImpl.class);
 
-    private static final Metadata.Key<com.google.protobuf.Any> DEBUG_INFO_TRAILER_KEY =
-            ProtoUtils.keyForProto(Any.getDefaultInstance());
-
-//    private static final Metadata.Key<SomeDetails> DEBUG_SOME_DATA =
-//            ProtoUtils.keyForProto(SomeDetails);
-
-    private static final Any DEBUG_INFO = Any.pack(StringValue.newBuilder().setValue("test value").build());
-//            DebugInfo.newBuilder()
-//                    .addStackEntries("stack_entry_1")
-//                    .addStackEntries("stack_entry_2")
-//                    .addStackEntries("stack_entry_3")
-//                    .setDetail("detailed error info.").build();
-
-    private static final String DEBUG_DESC = "detailed error description";
+//    private static final Metadata.Key<com.google.protobuf.Any> DEBUG_INFO_TRAILER_KEY =
+//            ProtoUtils.keyForProto(Any.getDefaultInstance());
+//
+//    private static final Any DEBUG_INFO = Any.pack(StringValue.newBuilder().setValue("test value").build());
 
 
     @Autowired
