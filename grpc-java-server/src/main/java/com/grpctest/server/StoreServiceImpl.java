@@ -1,8 +1,11 @@
 package com.grpctest.server;
 
+import com.google.rpc.DebugInfo;
 import com.grpctest.repository.Storage;
 import com.grpctest.repository.exception.NoRecordException;
 import com.grpctest.store.*;
+import io.grpc.Metadata;
+import io.grpc.protobuf.ProtoUtils;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +17,19 @@ import io.grpc.Status;
 public class StoreServiceImpl extends StoreServiceGrpc.StoreServiceImplBase {
 
     private static final Logger log = LoggerFactory.getLogger(StoreServiceImpl.class);
+
+    private static final Metadata.Key<DebugInfo> DEBUG_INFO_TRAILER_KEY =
+            ProtoUtils.keyForProto(DebugInfo.getDefaultInstance());
+
+    private static final DebugInfo DEBUG_INFO =
+            DebugInfo.newBuilder()
+                    .addStackEntries("stack_entry_1")
+                    .addStackEntries("stack_entry_2")
+                    .addStackEntries("stack_entry_3")
+                    .setDetail("detailed error info.").build();
+
+    private static final String DEBUG_DESC = "detailed error description";
+
 
     @Autowired
     private Storage storage;
@@ -41,7 +57,10 @@ public class StoreServiceImpl extends StoreServiceGrpc.StoreServiceImplBase {
             responseObserver.onCompleted();
         } catch (NoRecordException e) {
             log.error("record not found with id: {}", request.getId());
-            responseObserver.onError(Status.NOT_FOUND.withDescription(String.format("record not found with id: %d", request.getId())).asRuntimeException());
+
+            Metadata trailers = new Metadata();
+            trailers.put(DEBUG_INFO_TRAILER_KEY, DEBUG_INFO);
+            responseObserver.onError(Status.NOT_FOUND.withDescription(DEBUG_DESC).asRuntimeException(trailers));
         }
     }
 }

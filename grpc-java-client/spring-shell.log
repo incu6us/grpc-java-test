@@ -96,3 +96,8 @@
 1547498694258:read --server localhost:8000 --id 1
 1547498697477:read --server localhost:8000 --id 2
 1547498702455:quit
+1547544169853:read --server localhost:8000 --id 1
+1547544172889:read --server localhost:8000 --id 2
+1547544465033:quit
+1547544492280:read --server localhost:8000 --id 1
+1547544495123:read --server localhost:8000 --id 2
