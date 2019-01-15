@@ -56,7 +56,7 @@ public class StoreServiceImpl extends StoreServiceGrpc.StoreServiceImplBase {
 //            responseObserver.onError(Status.NOT_FOUND.withDescription(e.getMessage()).withCause(e).augmentDescription(DEBUG_INFO.toString()).asRuntimeException(trailers));
 
             // with details in error
-            StoreError storeError = StoreError.newBuilder().setError("some error").build();
+            StoreError storeError = StoreError.newBuilder().setError(String.format("no record with id: %d", request.getId())).build();
             com.google.rpc.Status status = com.google.rpc.Status.newBuilder()
                     .setCode(Status.Code.NOT_FOUND.value())
                     .setMessage(e.getMessage())
