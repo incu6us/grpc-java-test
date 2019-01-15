@@ -26,17 +26,17 @@ public class CliApp {
     private static final Logger log = LoggerFactory.getLogger(CliApp.class);
     private static final int WAIT_TIMEOUT = 500;
 
-    private static final Metadata.Key<DebugInfo> DEBUG_INFO_TRAILER_KEY =
-            ProtoUtils.keyForProto(DebugInfo.getDefaultInstance());
-
-    private static final DebugInfo DEBUG_INFO =
-            DebugInfo.newBuilder()
-                    .addStackEntries("stack_entry_1")
-                    .addStackEntries("stack_entry_2")
-                    .addStackEntries("stack_entry_3")
-                    .setDetail("detailed error info.").build();
-
-    private static final String DEBUG_DESC = "detailed error description";
+//    private static final Metadata.Key<DebugInfo> DEBUG_INFO_TRAILER_KEY =
+//            ProtoUtils.keyForProto(DebugInfo.getDefaultInstance());
+//
+//    private static final DebugInfo DEBUG_INFO =
+//            DebugInfo.newBuilder()
+//                    .addStackEntries("stack_entry_1")
+//                    .addStackEntries("stack_entry_2")
+//                    .addStackEntries("stack_entry_3")
+//                    .setDetail("detailed error info.").build();
+//
+//    private static final String DEBUG_DESC = "detailed error description";
 
     @ShellMethod(value = "store data to server", key = "store")
     public void addToStore(@ShellOption String server, @ShellOption int id, @ShellOption String message) throws InterruptedException {
@@ -87,14 +87,14 @@ public class CliApp {
         Metadata trailers = Status.trailersFromThrowable(t);
         log.info("trailers: {}", trailers);
 
-        Verify.verify(trailers.containsKey(DEBUG_INFO_TRAILER_KEY));
-        Verify.verify(status.getDescription().equals(DEBUG_DESC));
-        try {
-            Verify.verify(trailers.get(DEBUG_INFO_TRAILER_KEY).equals(DEBUG_INFO));
-            log.info("debug info: {}", trailers.get(DEBUG_INFO_TRAILER_KEY).getAllFields().toString());
-            log.info("debug info json: {}", new Gson().toJson(trailers.get(DEBUG_INFO_TRAILER_KEY)));
-        } catch (IllegalArgumentException e) {
-            throw new VerifyException(e);
-        }
+//        Verify.verify(trailers.containsKey(DEBUG_INFO_TRAILER_KEY));
+//        Verify.verify(status.getDescription().equals(DEBUG_DESC));
+//        try {
+//            Verify.verify(trailers.get(DEBUG_INFO_TRAILER_KEY).equals(DEBUG_INFO));
+//            log.info("debug info: {}", trailers.get(DEBUG_INFO_TRAILER_KEY).getAllFields().toString());
+//            log.info("debug info json: {}", new Gson().toJson(trailers.get(DEBUG_INFO_TRAILER_KEY)));
+//        } catch (IllegalArgumentException e) {
+//            throw new VerifyException(e);
+//        }
     }
 }
