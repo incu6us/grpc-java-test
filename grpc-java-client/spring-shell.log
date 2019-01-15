@@ -101,3 +101,16 @@
 1547544465033:quit
 1547544492280:read --server localhost:8000 --id 1
 1547544495123:read --server localhost:8000 --id 2
+1547544938047:quit
+1547544958000:read --server localhost:8000 --id 1
+1547544960621:read --server localhost:8000 --id 2
+1547545028321:quit
+1547545039040:read --server localhost:8000 --id 2
+1547545049028:quit
+1547545091697:read --server localhost:8000 --id 2
+1547545162244:quit
+1547545171866:read --server localhost:8000 --id 2
+1547546030573:quit
+1547563505711:read --server localhost:8000 --id 2
+1547563700107:quit
+1547563727859:read --server localhost:8000 --id 2

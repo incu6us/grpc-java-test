@@ -2,6 +2,7 @@ package com.grpctest;
 
 import com.google.common.base.Verify;
 import com.google.common.base.VerifyException;
+import com.google.gson.Gson;
 import com.google.rpc.DebugInfo;
 import com.grpctest.store.*;
 import io.grpc.ManagedChannel;
@@ -9,6 +10,7 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.Metadata;
 import io.grpc.Status;
 import io.grpc.protobuf.ProtoUtils;
+import io.grpc.protobuf.StatusProto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.shell.standard.ShellComponent;
@@ -79,6 +81,9 @@ public class CliApp {
         Status status = Status.fromThrowable(t);
         log.info("status: {}", status);
 
+        com.google.rpc.Status statusWithDetails = StatusProto.fromThrowable(t);
+        log.info("status with details: {}", statusWithDetails);
+
         Metadata trailers = Status.trailersFromThrowable(t);
         log.info("trailers: {}", trailers);
 
@@ -86,6 +91,8 @@ public class CliApp {
         Verify.verify(status.getDescription().equals(DEBUG_DESC));
         try {
             Verify.verify(trailers.get(DEBUG_INFO_TRAILER_KEY).equals(DEBUG_INFO));
+            log.info("debug info: {}", trailers.get(DEBUG_INFO_TRAILER_KEY).getAllFields().toString());
+            log.info("debug info json: {}", new Gson().toJson(trailers.get(DEBUG_INFO_TRAILER_KEY)));
         } catch (IllegalArgumentException e) {
             throw new VerifyException(e);
         }

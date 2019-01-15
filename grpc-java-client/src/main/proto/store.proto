@@ -23,6 +23,10 @@ message GetResponse {
     string value = 2;
 }
 
+message StoreError{
+    string error = 1;
+}
+
 service StoreService {
     rpc AddValue (StoreRequest) returns (StoreResponse) {};
     rpc GetValue (GetRequest) returns (GetResponse) {};
